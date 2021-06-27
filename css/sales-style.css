@@ -1,0 +1,45 @@
+* {
+  box-sizing: content-box;
+  text-transform: capitalize;
+}
+header {
+  color: #59ffd3;
+  background-color: #d72638;
+}
+h1 {
+  padding: 10px;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+}
+section {
+  position: relative;
+  top: -10px;
+  background-color: #e5ece9;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.2em;
+  list-style-type: square;
+  font-weight: bold;
+  color: #420039;
+}
+ul {
+  list-style-type: square;
+}
+section p {
+  margin: 10px;
+}
+/* .Tokyo {
+  background-size: cover;
+  background-image: url("https://www.touristsecrets.com/wp-content/uploads/2019/05/photo-1540959733332-eab4deabeeaf.jpeg");
+} */
+ul {
+  position: relative;
+}
+li {
+  position: relative;
+  left: 10%;
+}
+body {
+  overflow-x: hidden;
+}
