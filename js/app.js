@@ -29,6 +29,7 @@ process of thanking
 3. test it
 */
 ("use strict");
+
 let _section = document.getElementById("calcu");
 let _table = document.createElement("table");
 let _thead = document.createElement("thead");

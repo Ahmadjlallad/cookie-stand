@@ -11,7 +11,7 @@ header {
   width: 100%;
   padding: 2%;
   background-color: #d72638;
-  height: 150px;
+  height: 70px;
 }
 h1 {
   position: absolute;
@@ -34,7 +34,7 @@ ul {
 li {
   color: #59ffd3;
   position: absolute;
-  top: 76px;
+  top: 3px;
 }
 a {
   font-weight: bold;
