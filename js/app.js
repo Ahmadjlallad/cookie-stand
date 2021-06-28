@@ -33,10 +33,12 @@ const Seattle_sells = {
     let gg = 0;
     for (let i = 0; i < this.working_hours; i++) {
       this.arrayOf_results_array[i] = this.amounts_of_cookies_purchased();
-      gg += this.amounts_of_cookies_purchased();
+      gg += this.arrayOf_results_array[i];
+      // console.log(this.arrayOf_results_array);
+      // console.log(gg);
     }
-    console.log(gg);
-    console.log(this.arrayOf_results_array);
+    // console.log(this.arrayOf_results_array);
+    // console.log(gg);
 
     this.arrayOf_results_array.push(gg);
     return this.arrayOf_results_array;
@@ -64,7 +66,7 @@ const Tokyo_sells = {
     let gg = 0;
     for (let i = 0; i < this.working_hours; i++) {
       this.arrayOf_results_array[i] = this.amounts_of_cookies_purchased();
-      gg += this.amounts_of_cookies_purchased();
+      gg += this.arrayOf_results_array[i];
     }
     console.log(gg);
     console.log(this.arrayOf_results_array);
@@ -95,7 +97,7 @@ const Dubai_sells = {
     let gg = 0;
     for (let i = 0; i < this.working_hours; i++) {
       this.arrayOf_results_array[i] = this.amounts_of_cookies_purchased();
-      gg += this.amounts_of_cookies_purchased();
+      gg += this.arrayOf_results_array[i];
     }
     console.log(gg);
     console.log(this.arrayOf_results_array);
@@ -126,7 +128,7 @@ const Paris_sells = {
     let gg = 0;
     for (let i = 0; i < this.working_hours; i++) {
       this.arrayOf_results_array[i] = this.amounts_of_cookies_purchased();
-      gg += this.amounts_of_cookies_purchased();
+      gg += this.arrayOf_results_array[i];
     }
     console.log(gg);
     console.log(this.arrayOf_results_array);
@@ -157,7 +159,7 @@ const Lima_sells = {
     let gg = 0;
     for (let i = 0; i < this.working_hours; i++) {
       this.arrayOf_results_array[i] = this.amounts_of_cookies_purchased();
-      gg += this.amounts_of_cookies_purchased();
+      gg += this.arrayOf_results_array[i];
     }
     console.log(gg);
     console.log(this.arrayOf_results_array);
