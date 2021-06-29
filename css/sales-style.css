@@ -1,6 +1,10 @@
 * {
   box-sizing: content-box;
   text-transform: capitalize;
+  font-family: "Source Code Pro", monospace;
+  text-decoration: none;
+
+  list-style: none;
 }
 header {
   color: #e5ece9;
@@ -8,7 +12,6 @@ header {
 }
 h1 {
   padding: 10px;
-  font-family: "Raleway", sans-serif;
   font-size: 1.5em;
   text-align: center;
   font-weight: bold;
@@ -62,4 +65,16 @@ td {
   padding: 3px;
   border: 5px solid #d72638;
   border-right: 1px;
+}
+ul {
+  position: relative;
+}
+li {
+  position: absolute;
+  margin: 14px;
+  top: -52px;
+}
+a {
+  color: #ffc400;
+  font-size: 30px;
 }
