@@ -27,6 +27,20 @@
       </nav>
     </header>
     <main>
+      <form id="sales_form">
+        <legend>locations forms</legend>
+        <fieldset>
+          <label for="Name">location Name</label>
+          <input type="text" id="Name" placeholder="location Name" />
+          <label for="min">minimum sales</label>
+          <input type="number" id="min" value="min" step="0.01" />
+          <label for="max">maximum sales</label>
+          <input type="number" id="max" value="max" step="0.01" />
+          <label for="avg">average sales</label>
+          <input type="number" id="avg" value="avg" step="0.01" />
+          <input type="submit" value="submit" id="sub" />
+        </fieldset>
+      </form>
       <section id="calcu"></section>
     </main>
     <footer></footer>
