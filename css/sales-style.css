@@ -78,3 +78,25 @@ a {
   color: #ffc400;
   font-size: 30px;
 }
+legend {
+  text-align: center;
+}
+fieldset {
+  color: #d72638;
+  border: #d72638 10px solid;
+  border-radius: 50% 20% / 10% 40%;
+  padding: 10px;
+  width: 80%;
+  margin: 16px 10%;
+}
+#sub {
+  margin: 5px 0 0 564px;
+}
+
+#sub:hover {
+  background-color: #d72638;
+  color: #e5ece9;
+
+  border: #d72638 1px solid;
+  border-radius: 50% 20% / 10% 40%;
+}

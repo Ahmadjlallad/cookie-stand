@@ -30,6 +30,9 @@ process of thanking
 */
 ("use strict");
 
+// ------------------------------------------------------------------------------------------> DOM Declaration
+
+let main = document.getElementsByTagName("main");
 let _section = document.getElementById("calcu");
 let _table = document.createElement("table");
 let _thead = document.createElement("thead");
@@ -40,6 +43,8 @@ _table.appendChild(_thead);
 _table.appendChild(_tfoot);
 _table.appendChild(_tbody);
 
+// ------------------------------------------------------------------------------------------> Time function
+
 function hours(start_from) {
   if (start_from < 24) {
     if (start_from > 12) {
@@ -49,6 +54,9 @@ function hours(start_from) {
     }
   }
 }
+
+// ------------------------------------------------------------------------------------------> constructor
+
 let storedCreatedObj = [];
 let SalmonCookie = function (Name, AvgCust, Mincust, MaxCust, working_hours) {
   this.Name = Name;
@@ -58,7 +66,11 @@ let SalmonCookie = function (Name, AvgCust, Mincust, MaxCust, working_hours) {
   this.working_hours = working_hours;
 
   storedCreatedObj.push(this);
+  this.calculatorFunction();
 };
+
+// ------------------------------------------------------------------------------------------> sales calculator prototype function
+
 SalmonCookie.prototype.calculatorFunction = function () {
   this.arrayOf_results_array = [];
   this.gg = 0;
@@ -73,20 +85,25 @@ SalmonCookie.prototype.calculatorFunction = function () {
 
   return this.arrayOf_results_array;
 };
+
+// ------------------------------------------------------------------------------------------> hourlycalculator sales calculator prototype function
+
 SalmonCookie.prototype.hourlycalculator = function () {
   this.dummy = [];
-  this.Pig = 0;
+  this.big = 0;
   for (let i = 0; i < this.working_hours; i++) {
     this.dummys = 0;
-    for (let j = 0; j < 5; j++) {
+    for (let j = 0; j < storedCreatedObj.length; j++) {
       // console.log(this.dummy);
       this.dummys += storedCreatedObj[j].arrayOf_results_array[i];
     }
-    this.Pig += this.dummys;
+    this.big += this.dummys;
     this.dummy.push(this.dummys);
   }
   // return this.dummy;
 };
+
+// ------------------------------------------------------------------------------------------> instances declaration
 
 let Seattle = new SalmonCookie("Seattle", 6.3, 23, 65, 14);
 let Tokyo = new SalmonCookie("Tokyo", 1.2, 3, 24, 14);
@@ -94,11 +111,11 @@ let Dubai = new SalmonCookie("Dubai", 3.7, 11, 38, 14);
 let Paris = new SalmonCookie("Paris", 2.3, 20, 38, 14);
 let Lima = new SalmonCookie("Lima", 4.6, 2, 16, 14);
 
-SalmonCookie.prototype.render_for_head_foot = function () {
+// ------------------------------------------------------------------------------------------> render_for_head prototype function
+
+SalmonCookie.prototype.render_for_head = function () {
   let _tr = document.createElement("tr");
-  let _trfoot = document.createElement("tr");
   _thead.appendChild(_tr);
-  _tfoot.appendChild(_trfoot);
   let _th1 = document.createElement("th");
   _tr.appendChild(_th1);
   _th1.textContent = ``;
@@ -111,6 +128,14 @@ SalmonCookie.prototype.render_for_head_foot = function () {
   let _th2 = document.createElement("th");
   _tr.appendChild(_th2);
   _th2.textContent = `Daily Location Total`;
+};
+
+// ------------------------------------------------------------------------------------------> render_for_foot prototype function
+
+SalmonCookie.prototype.render_for_foot = function () {
+  let _trfoot = document.createElement("tr");
+
+  _tfoot.appendChild(_trfoot);
 
   let _thfoot1 = document.createElement("th");
   _trfoot.appendChild(_thfoot1);
@@ -123,8 +148,11 @@ SalmonCookie.prototype.render_for_head_foot = function () {
   }
   let _thfoot2 = document.createElement("th");
   _trfoot.appendChild(_thfoot2);
-  _thfoot2.textContent = `Total EL TOTAL ${this.Pig}`;
+  _thfoot2.textContent = `Total EL TOTAL ${this.big}`;
 };
+
+// ------------------------------------------------------------------------------------------> render_for_body prototype function
+
 SalmonCookie.prototype.render_for_body = function () {
   let _trbody = document.createElement("tr");
   _tbody.appendChild(_trbody);
@@ -137,14 +165,48 @@ SalmonCookie.prototype.render_for_body = function () {
     _td_for_results.textContent = `${this.arrayOf_results_array[i]}`;
   }
 };
-Seattle.calculatorFunction();
-Tokyo.calculatorFunction();
-Dubai.calculatorFunction();
-Paris.calculatorFunction();
-Lima.calculatorFunction();
-Seattle.render_for_head_foot();
-Seattle.render_for_body();
-Tokyo.render_for_body();
-Dubai.render_for_body();
-Paris.render_for_body();
-Lima.render_for_body();
+
+// ------------------------------------------------------------------------------------------> addEventListener prototype function
+
+const _form = document.getElementById("sales_form");
+_form.addEventListener("submit", _form_Huddler);
+
+function _form_Huddler(event) {
+  event.preventDefault();
+
+  const _location_Name = event.target.Name.value;
+  const _min_form = event.target.min.value;
+  const _max_form = event.target.max.value;
+  const _avg_form = event.target.avg.value;
+  console.log(_location_Name);
+  console.log(_min_form);
+  console.log(_max_form);
+  console.log(_avg_form);
+  const _input_form = new SalmonCookie(
+    _location_Name,
+    _avg_form,
+    _min_form,
+    _max_form,
+    14
+  );
+
+  // remove footer then cull it aging
+
+  _table.removeChild(_tfoot);
+  _tfoot = document.createElement("tfoot");
+  _table.appendChild(_tfoot);
+  _input_form.render_for_body();
+  storedCreatedObj[0].render_for_foot();
+}
+
+// ------------------------------------------------------------------------------------------> function stand alone function to call render functions
+
+function render() {
+  for (let i = 0; i < storedCreatedObj.length; i++) {
+    storedCreatedObj[i].render_for_body();
+  }
+  storedCreatedObj[0].render_for_head();
+  storedCreatedObj[0].render_for_foot();
+}
+
+render();
