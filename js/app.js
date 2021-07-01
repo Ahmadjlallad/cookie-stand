@@ -175,9 +175,9 @@ function _form_Huddler(event) {
   event.preventDefault();
 
   const _location_Name = event.target.Name.value;
-  const _min_form = event.target.min.value;
-  const _max_form = event.target.max.value;
-  const _avg_form = event.target.avg.value;
+  const _min_form = parseFloat(event.target.min.value);
+  const _max_form = parseFloat(event.target.max.value);
+  const _avg_form = parseFloat(event.target.avg.value);
   console.log(_location_Name);
   console.log(_min_form);
   console.log(_max_form);
